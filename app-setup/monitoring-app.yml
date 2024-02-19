@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: configs
   destination:
-    server: https://kubernetes.docker.internal:6443
+    server: https://kubernetes.default.svc
     namespace: monitoring
   syncPolicy:
     syncOptions:
