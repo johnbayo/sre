@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/johnbayo/sre.git
     targetRevision: HEAD
-    path: configs
+    path: ./configs/
   destination:
     server: https://kubernetes.default.svc
     namespace: onlineboutique

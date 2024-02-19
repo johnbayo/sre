@@ -1,0 +1,24 @@
+---
+sloth:
+  app: checkout
+  slos:
+    - name: latency-500ms
+      total_metric: nginx_http_response_time_seconds_hist_bucket{service="cart-checkout", le="+Inf"}
+      error_metric: nginx_http_response_time_seconds_hist_bucket{service="cart-checkout", le="0.5"}
+      percentile: 90
+      category: latency
+      description: SLO
+    - name: latency-1000ms
+      total_metric: nginx_http_response_time_seconds_hist_bucket{service="cart-checkout", le="+Inf"}
+      error_metric: nginx_http_response_time_seconds_hist_bucket{service="cart-checkout", le="1"}
+      percentile: 99
+      category: latency
+      description: SLO
+    - name: availability
+      percentile: 98
+      category: availability
+      description: SLO
+      custom_error_ratio_query: |
+        (sum(increase(nginx_http_response_count_total{status=~"(5.*|429)", service="cart-checkout"}[{{"{{.window}}"}}]))
+        /
+        (sum(increase(nginx_http_response_count_total{service="cart-checkout"}[{{"{{.window}}"}}])) > 0)) OR on() vector(0)
