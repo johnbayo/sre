@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: onlineboutique
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/johnbayo/sre.git
+    targetRevision: HEAD
+    path: configs
+  destination:
+    server: https://kubernetes.docker.internal:6443
+    namespace: onlineboutique
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: onlineboutique
+  namespace: onlineboutique
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: onlineboutique
+  url: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
+  type: helm
+  
