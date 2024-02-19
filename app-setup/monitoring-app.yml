@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/johnbayo/sre.git
     targetRevision: HEAD
-    path: configs
+    path: ./configs/local/prometheus
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
@@ -18,4 +18,16 @@ spec:
     automated:
       prune: true
       selfHeal: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: prometheus
+  namespace: onlineboutique
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: prometheus
+  url: https://prometheus-community.github.io/helm-charts
+  type: helm
   
