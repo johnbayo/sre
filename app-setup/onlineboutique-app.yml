@@ -6,9 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/johnbayo/sre.git
+  - repoURL: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
+  - repoURL: https://github.com/johnbayo/sre.git
     targetRevision: HEAD
-    path: ./configs/local/onlineboutique
+    helm:
+      valueFiles:
+      - ./configs/local/onlineboutique
   destination:
     server: https://kubernetes.default.svc
     namespace: onlineboutique
@@ -18,16 +21,16 @@ spec:
     automated:
       prune: true
       selfHeal: true
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: onlineboutique
-  namespace: onlineboutique
-  labels:
-    argocd.argoproj.io/secret-type: repository
-stringData:
-  name: onlineboutique
-  url: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
-  type: helm
+#---
+#apiVersion: v1
+#kind: Secret
+#metadata:
+#  name: onlineboutique
+#  namespace: onlineboutique
+#  labels:
+#    argocd.argoproj.io/secret-type: repository
+#stringData:
+#  name: onlineboutique
+#  url: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
+#  type: helm
   
