@@ -13,6 +13,9 @@ spec:
       releaseName: prometheus
       valueFiles:
         - values.yaml
+      parameters:
+        - name: alertmanager.enabled
+          value: 'false'
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
