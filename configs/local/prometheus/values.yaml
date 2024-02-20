@@ -141,76 +141,27 @@ server:
     maxUnavailable: 1
 
   persistentVolume:
-    ## If true, Prometheus server will create/use a Persistent Volume Claim
-    ## If false, use emptyDir
-    ##
     enabled: true
-
-    ## Prometheus server data Persistent Volume access modes
-    ## Must match those of existing PV or dynamic provisioner
-    ## Ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
-    ##
     accessModes:
       - ReadWriteOnce
-
-    ## Prometheus server data Persistent Volume labels
-    ##
     labels: {}
-
-    ## Prometheus server data Persistent Volume annotations
-    ##
     annotations: {}
-
-    ## Prometheus server data Persistent Volume existing claim name
-    ## Requires server.persistentVolume.enabled: true
-    ## If defined, PVC must be created manually before volume will be bound
     existingClaim: ""
-
-    ## Prometheus server data Persistent Volume mount root path
-    ##
     mountPath: /data
-
-    ## Prometheus server data Persistent Volume size
-    ##
     size: 1Gi
     subPath: ""
-
   emptyDir:
-    ## Prometheus server emptyDir volume size limit
-    ##
     sizeLimit: ""
 
-  ## Annotations to be added to Prometheus server pods
-  ##
   podAnnotations:
     {}
-    # iam.amazonaws.com/role: prometheus
 
-  ## Labels to be added to Prometheus server pods
-  ##
   podLabels: {}
 
-  ## Prometheus AlertManager configuration
-  ##
   alertmanagers: []
-
-  ## Specify if a Pod Security Policy for node-exporter must be created
-  ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/
-  ##
   podSecurityPolicy:
     annotations:
       {}
-      ## Specify pod annotations
-      ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#apparmor
-      ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#seccomp
-      ## Ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#sysctl
-      ##
-      # seccomp.security.alpha.kubernetes.io/allowedProfileNames: '*'
-      # seccomp.security.alpha.kubernetes.io/defaultProfileName: 'docker/default'
-      # apparmor.security.beta.kubernetes.io/defaultProfileName: 'runtime/default'
-
-  ## Use a StatefulSet if replicaCount needs to be greater than 1 (see below)
-  ##
   replicaCount: 1
 
   ## Annotations to be added to deployment
@@ -218,17 +169,11 @@ server:
   deploymentAnnotations: {}
 
   statefulSet:
-    ## If true, use a statefulset instead of a deployment for pod management.
-    ## This allows to scale replicas to more than 1 pod
-    ##
     enabled: false
 
     annotations: {}
     labels: {}
     podManagementPolicy: OrderedReady
-
-    ## Alertmanager headless service to use for the statefulset
-    ##
     headless:
       annotations: {}
       labels: {}
@@ -255,53 +200,16 @@ server:
     failureThreshold: 30
     timeoutSeconds: 10
 
-  ## Prometheus server resource requests and limits
-  ## Ref: http://kubernetes.io/docs/user-guide/compute-resources/
-  ##
   resources:
     {}
-    # limits:
-    #   cpu: 500m
-    #   memory: 512Mi
-    # requests:
-    #   cpu: 500m
-    #   memory: 512Mi
-
-  # Required for use in managed kubernetes clusters (such as AWS EKS) with custom CNI (such as calico),
-  # because control-plane managed by AWS cannot communicate with pods' IP CIDR and admission webhooks are not working
-  ##
   hostNetwork: false
 
-  # When hostNetwork is enabled, this will set to ClusterFirstWithHostNet automatically
   dnsPolicy: ClusterFirst
-
-  # Use hostPort
-  # hostPort: 9090
-
-  ## Vertical Pod Autoscaler config
-  ## Ref: https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
   verticalAutoscaler:
-    ## If true a VPA object will be created for the controller (either StatefulSet or Deployemnt, based on above configs)
     enabled: false
-    # updateMode: "Auto"
-    # containerPolicies:
-    # - containerName: 'prometheus-server'
 
-  # Custom DNS configuration to be added to prometheus server pods
   dnsConfig:
     {}
-    # nameservers:
-    #   - 1.2.3.4
-    # searches:
-    #   - ns1.svc.cluster-domain.example
-    #   - my.dns.search.suffix
-    # options:
-    #   - name: ndots
-    #     value: "2"
-  #   - name: edns0
-
-  ## Security context to be added to server pods
-  ##
   securityContext:
     runAsUser: 1009670000
     runAsNonRoot: true
@@ -336,28 +244,16 @@ server:
     gRPC:
       enabled: false
       servicePort: 10901
-      # nodePort: 10901
-
-    ## If using a statefulSet (statefulSet.enabled=true), configure the
-    ## service to connect to a specific replica to have a consistent view
-    ## of the data.
     statefulsetReplica:
       enabled: false
       replica: 0
 
-  ## Prometheus server pod termination grace period
-  ##
   terminationGracePeriodSeconds: 300
 
-  ## Prometheus data retention period (default if not specified is 15 days)
-  ##
   retention: "15d"
 
-## Prometheus server ConfigMap entries for rule files (allow prometheus labels interpolation)
 ruleFiles: {}
 
-## Prometheus server ConfigMap entries
-##
 serverFiles:
   alerting_rules.yml: {}
   alerts: {}
@@ -437,9 +333,6 @@ serverFiles:
 
         kubernetes_sd_configs:
           - role: endpoints
-
-        # Default to scraping over https. If required, just disable this or change to
-        # `http`.
         scheme: https
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
@@ -451,9 +344,6 @@ serverFiles:
             regex: default;kubernetes;https
 
       - job_name: 'kubernetes-nodes'
-
-        # Default to scraping over https. If required, just disable this or change to
-        # `http`.
         scheme: https
         tls_config:
           ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt

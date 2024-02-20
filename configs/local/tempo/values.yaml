@@ -1,0 +1,198 @@
+nameOverride: ""
+
+fullnameOverride: ""
+
+replicas: 1
+
+annotations: {}
+
+tempo:
+  repository: grafana/tempo
+  tag: null
+  pullPolicy: IfNotPresent
+
+  updateStrategy: RollingUpdate
+  resources: {}
+
+  memBallastSizeMbs: 1024
+  multitenancyEnabled: false
+  # -- If true, Tempo will report anonymous usage data about the shape of a deployment to Grafana Labs
+  reportingEnabled: true
+  metricsGenerator:
+    # -- If true, enables Tempo's metrics generator (https://grafana.com/docs/tempo/next/metrics-generator/)
+    enabled: false
+    remoteWriteUrl: "http://prometheus.monitoring:9090/api/v1/write"
+  # -- Configuration options for the ingester
+  ingester: {}
+  # -- Configuration options for the querier
+  querier: {}
+  # -- Configuration options for the query-fronted
+  queryFrontend: {}
+  retention: 24h
+  # Global overrides
+  global_overrides:
+    per_tenant_override_config: /conf/overrides.yaml
+  overrides: {}
+  server:
+    # -- HTTP server listen port
+    http_listen_port: 3100
+  storage:
+    trace:
+      backend: local
+      local:
+        path: /var/tempo/traces
+      wal:
+        path: /var/tempo/wal
+  receivers:
+    jaeger:
+      protocols:
+        grpc:
+          endpoint: 0.0.0.0:14250
+        thrift_binary:
+          endpoint: 0.0.0.0:6832
+        thrift_compact:
+          endpoint: 0.0.0.0:6831
+        thrift_http:
+          endpoint: 0.0.0.0:14268
+    opencensus:
+    otlp:
+      protocols:
+        grpc:
+          endpoint: "0.0.0.0:4317"
+        http:
+          endpoint: "0.0.0.0:4318"
+  securityContext: 
+    capabilities:
+      drop:
+        - ALL
+      add:
+        - NET_BIND_SERVICE
+    seccompProfile:
+      type: RuntimeDefault
+
+  ## Additional container arguments
+  extraArgs: {}
+  # -- Environment variables to add
+  extraEnv: []
+  # -- Environment variables from secrets or configmaps to add to the ingester pods
+  extraEnvFrom: []
+  # -- Volume mounts to add
+  extraVolumeMounts: []
+  # - name: extra-volume
+  #   mountPath: /mnt/volume
+  #   readOnly: true
+  #   existingClaim: volume-claim
+
+# -- Tempo configuration file contents
+# @default -- Dynamically generated tempo configmap
+config: |
+    multitenancy_enabled: {{ .Values.tempo.multitenancyEnabled }}
+    usage_report:
+      reporting_enabled: {{ .Values.tempo.reportingEnabled }}
+    compactor:
+      compaction:
+        block_retention: {{ .Values.tempo.retention }}
+    distributor:
+      receivers:
+        {{- toYaml .Values.tempo.receivers | nindent 8 }}
+    ingester:
+      {{- toYaml .Values.tempo.ingester | nindent 6 }}
+    server:
+      {{- toYaml .Values.tempo.server | nindent 6 }}
+    storage:
+      {{- toYaml .Values.tempo.storage | nindent 6 }}
+    querier:
+      {{- toYaml .Values.tempo.querier | nindent 6 }}
+    query_frontend:
+      {{- toYaml .Values.tempo.queryFrontend | nindent 6 }}
+    overrides:
+      {{- toYaml .Values.tempo.global_overrides | nindent 6 }}
+      {{- if .Values.tempo.metricsGenerator.enabled }}
+          metrics_generator_processors:
+          - 'service-graphs'
+          - 'span-metrics'
+    metrics_generator:
+          storage:
+            path: "/tmp/tempo"
+            remote_write:
+              - url: {{ .Values.tempo.metricsGenerator.remoteWriteUrl }}
+      {{- end }}
+
+tempoQuery:
+  repository: grafana/tempo-query
+  tag: null
+  pullPolicy: IfNotPresent
+  enabled: false
+
+  service:
+    port: 16686
+
+  ingress:
+    enabled: false
+    annotations: {}
+    labels: {}
+    path: /
+
+    pathType: Prefix
+
+    hosts:
+      - query.tempo.example.com
+    ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
+    extraPaths: []
+
+    tls: []
+
+  resources: {}
+
+  ## Additional container arguments
+  extraArgs: {}
+  # -- Environment variables to add
+  extraEnv: []
+  # -- Volume mounts to add
+  extraVolumeMounts: []
+  securityContext: {}
+
+securityContext:
+  runAsUser: 1009670000
+  runAsNonRoot: true
+  runAsGroup: 1009670000
+  fsGroup: 1009670000
+
+serviceAccount:
+  create: true
+  name: null
+  imagePullSecrets: []
+  annotations: {}
+  labels: {}
+  automountServiceAccountToken: true
+
+service:
+  type: ClusterIP
+  annotations: {}
+  labels: {}
+
+serviceMonitor:
+  enabled: false
+  interval: ""
+  additionalLabels: {}
+  annotations: {}
+
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 2Gi
+
+podAnnotations: {}
+
+podLabels: {}
+
+extraVolumes: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+priorityClassName: null

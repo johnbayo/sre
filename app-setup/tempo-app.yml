@@ -12,7 +12,10 @@ spec:
     helm:
       releaseName: tempo
       valueFiles:
-        - values.yaml
+        - $values/configs/local/tempo/values.yaml
+  - repoURL: git@github.com:johnbayo/sre.git
+    path: configs/local/tempo/
+    ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

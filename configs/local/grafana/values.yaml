@@ -60,14 +60,7 @@ image:
   tag: "10.0.0"
   sha: ""
   pullPolicy: IfNotPresent
-
-  ## Optionally specify an array of imagePullSecrets.
-  ## Secrets must be manually created in the namespace.
-  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-  ## Can be templated.
-  ##
   pullSecrets: []
-  #   - myRegistrKeySecretName
 
 testFramework:
   enabled: true
@@ -755,9 +748,6 @@ imageRenderer:
     # Adds the appProtocol field to the image-renderer service. This allows to work with istio protocol selection. Ex: "http" or "tcp"
     appProtocol: ""
   serviceMonitor:
-    ## If true, a ServiceMonitor CRD is created for a prometheus operator
-    ## https://github.com/coreos/prometheus-operator
-    ##
     enabled: false
     path: /metrics
     #  namespace: monitoring  (defaults to use the namespace this chart is deployed to)
@@ -769,9 +759,6 @@ imageRenderer:
     relabelings: []
     # See: https://doc.crds.dev/github.com/prometheus-operator/kube-prometheus/monitoring.coreos.com/ServiceMonitor/v1@v0.11.0#spec-targetLabels
     targetLabels: []
-      # - targetLabel1
-      # - targetLabel2
-  # If https is enabled in Grafana, this needs to be set as 'https' to correctly configure the callback used in Grafana
   grafanaProtocol: http
   # In case a sub_path is used this needs to be added to the image renderer callback
   grafanaSubPath: ""
