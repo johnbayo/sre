@@ -7,15 +7,15 @@ spec:
   project: default
   source:
   - repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 25.12.
+    targetRevision: 25.12.0
     chart: prometheus
     helm:
       releaseName: prometheus
+      valueFiles:
+      - $values/charts/prometheus/values.yaml
   - repoURL: 'https://git.example.com/org/value-files.git'
     targetRevision: HEAD
-    helm:
-      valueFiles:
-      - ./configs/local/prometheus
+    ref: ./configs/local/prometheus/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring

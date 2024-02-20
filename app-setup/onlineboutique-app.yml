@@ -10,11 +10,11 @@ spec:
     chart: onlineboutique
     helm:
       releaseName: onlineboutique
+     valueFiles:
+      - $values/charts/onlineboutique/values.yaml
   - repoURL: https://github.com/johnbayo/sre.git
     targetRevision: HEAD
-    helm:
-      valueFiles:
-      - ./configs/local/onlineboutique
+    ref: ./configs/local/onlineboutique/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: onlineboutique
