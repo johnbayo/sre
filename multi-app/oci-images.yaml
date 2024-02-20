@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: oci-repo-creds
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: onlineboutique-repo
+  url:  oci://us-docker.pkg.dev/online-boutique-ci/charts
+  enableOCI: "true"
+  type: helm
