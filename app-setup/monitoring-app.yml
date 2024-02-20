@@ -13,9 +13,6 @@ spec:
       releaseName: prometheus
       valueFiles:
         - values.yaml
-  - repoURL: 'https://github.com/johnbayo/sre.git'
-    targetRevision: HEAD
-    ref: ./configs/local/prometheus/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
