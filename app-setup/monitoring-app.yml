@@ -13,7 +13,7 @@ spec:
       releaseName: prometheus
       valueFiles:
       - $values/charts/prometheus/values.yaml
-  - repoURL: 'https://git.example.com/org/value-files.git'
+  - repoURL: 'https://github.com/johnbayo/sre.git'
     targetRevision: HEAD
     ref: ./configs/local/prometheus/values.yaml
   destination:
@@ -26,14 +26,36 @@ spec:
       prune: true
       selfHeal: true
 #---
-#apiVersion: v1
-#kind: Secret
+#apiVersion: argoproj.io/v1alpha1
+#kind: Application
 #metadata:
-#  name: prometheus
-#  namespace: onlineboutique
-#  labels:
-#    argocd.argoproj.io/secret-type: repository
-#stringData:
-#  name: prometheus
-#  url: https://prometheus-community.github.io/helm-charts
-#  type: helm
+#  name: monitoring
+#  namespace: argocd
+#spec:
+#  project: default
+#  source:
+#    repoURL: https://prometheus-community.github.io/helm-charts
+#    targetRevision: 25.12.0  # Ensure this is the correct version you want to deploy
+#    chart: prometheus
+#    helm:
+#      releaseName: prometheus
+#      parameters:
+#        - name: valuesFromGit.enabled  # This parameter name is just an example; use the actual parameter name if your chart supports it
+#          value: "true"
+#      valueFiles:
+#        - values.yaml  # This should be the default values file within the chart, if needed
+#  destination:
+#    server: https://kubernetes.default.svc
+#    namespace: monitoring
+#  syncPolicy:
+#    syncOptions:
+#      - CreateNamespace=true
+#    automated:
+#      prune: true
+#      selfHeal: true
+#  helm:
+#    valueFiles:
+#      - name: custom-values  # This name is arbitrary and used for reference
+#        kind: ConfigMap  # Assuming you are using a ConfigMap to store the external values; change this if using a Secret
+#        name: my-custom-values  # The name of the ConfigMap or Secret in the Argo CD namespace that contains the values file
+#        key: values.yaml  # The key within the ConfigMap or Secret where the values file content is stored
