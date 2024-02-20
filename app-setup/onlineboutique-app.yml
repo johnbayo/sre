@@ -9,8 +9,11 @@ spec:
   - repoURL: us-docker.pkg.dev/online-boutique-ci/charts
     chart: onlineboutique
     targetRevision: 0.9.0  
-  - repoURL: 'https://github.com/johnbayo/sre/blob/main/configs/local/onlineboutique/values.yaml'
-    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - $values/configs/local/onlineboutique/values.yaml
+  - repoURL: git@github.com:johnbayo/sre.git
+    path: configs/local/onlineboutique/
     ref: values
   destination:
     server: https://kubernetes.default.svc
