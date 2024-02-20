@@ -7,6 +7,6 @@ metadata:
     argocd.argoproj.io/secret-type: repository
 stringData:
   name: onlineboutique-repo
-  url:  oci://us-docker.pkg.dev/online-boutique-ci/charts
+  url:  us-docker.pkg.dev/online-boutique-ci/charts
   enableOCI: "true"
   type: helm
