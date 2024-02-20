@@ -6,15 +6,12 @@ metadata:
 spec:
   project: default
   source:
-  - repoURL: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
+    repoURL: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
     chart: onlineboutique
     helm:
       releaseName: onlineboutique
-     valueFiles:
-      - $values/charts/onlineboutique/values.yaml
-  - repoURL: https://github.com/johnbayo/sre.git
-    targetRevision: HEAD
-    ref: ./configs/local/onlineboutique/values.yaml
+      valueFiles:
+        - values.yaml  # Assuming 'values.yaml' is part of your chart; adjust the path as necessary
   destination:
     server: https://kubernetes.default.svc
     namespace: onlineboutique
@@ -24,6 +21,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
 #---
 #apiVersion: v1
 #kind: Secret
