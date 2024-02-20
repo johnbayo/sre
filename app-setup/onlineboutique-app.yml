@@ -8,6 +8,7 @@ spec:
   source:
     repoURL: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
     chart: onlineboutique
+    targetRevision: 0.9.0
     helm:
       releaseName: onlineboutique
       valueFiles:
