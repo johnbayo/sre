@@ -7,7 +7,9 @@ spec:
   project: default
   source:
   - repoURL: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
-    targetRevision: HEAD
+    chart: onlineboutique
+    helm:
+      releaseName: onlineboutique
   - repoURL: https://github.com/johnbayo/sre.git
     targetRevision: HEAD
     helm:
