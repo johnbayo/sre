@@ -12,7 +12,10 @@ spec:
     helm:
       releaseName: loki
       valueFiles:
-        - values.yaml
+        - $values/configs/local/loki/values.yaml
+  - repoURL: git@github.com:johnbayo/sre.git
+    path: configs/local/loki/
+    ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
