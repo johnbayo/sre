@@ -210,11 +210,11 @@ server:
 
   dnsConfig:
     {}
-  securityContext:
-    runAsUser: 1009670000
-    runAsNonRoot: true
-    runAsGroup: 1009670000
-    fsGroup: 1009670000
+  securityContext: {}
+#    runAsUser: 1009670000
+#    runAsNonRoot: true
+#    runAsGroup: 1009670000
+#    fsGroup: 1009670000
 
   ## Security context to be added to server container
   ##
@@ -620,11 +620,11 @@ alertmanager:
   persistence:
     size: 1Gi
 
-  podSecurityContext:
-    runAsUser: 1009670000
-    runAsNonRoot: true
-    runAsGroup: 1009670000
-    fsGroup: 1009670000
+  podSecurityContext: {}
+#    runAsUser: 1009670000
+#    runAsNonRoot: true
+#    runAsGroup: 1009670000
+#    fsGroup: 1009670000
 
 kube-state-metrics:
   enabled: true
