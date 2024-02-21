@@ -91,12 +91,12 @@ server:
 
   extraHostPathMounts: []
 
-  extraConfigmapMounts:
-    - name: sre-boutique
-      mountPath: /etc/config/sre
-      subPath: ""
-      configMap: sre-boutique
-      readOnly: true
+  extraConfigmapMounts: []
+#    - name: sre-boutique
+#      mountPath: /etc/config/sre
+#      subPath: ""
+#      configMap: sre-boutique
+#      readOnly: true
 
   extraSecretMounts:
     []
