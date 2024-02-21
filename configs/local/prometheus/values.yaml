@@ -141,7 +141,7 @@ server:
     maxUnavailable: 1
 
   persistentVolume:
-    enabled: true
+    enabled: false
     accessModes:
       - ReadWriteOnce
     labels: {}
