@@ -177,11 +177,11 @@ serviceMonitor:
   additionalLabels: {}
   annotations: {}
 
-persistence:
-  enabled: true
-  accessModes:
-    - ReadWriteOnce
-  size: 2Gi
+persistence: {}
+#  enabled: true
+#  accessModes:
+#    - ReadWriteOnce
+#  size: 2Gi
 
 podAnnotations: {}
 
