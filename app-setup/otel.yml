@@ -7,9 +7,10 @@ spec:
   project: default
   sources:
   - repoURL: https://open-telemetry.github.io/opentelemetry-helm-charts
-    chart: open-telemetry
+    chart: opentelemetry-demo
     targetRevision: 0.29.0  
     helm:
+      releaseName: open-telemetry
       valueFiles:
         - $values/configs/local/otel/values.yaml
   - repoURL: git@github.com:johnbayo/sre.git
