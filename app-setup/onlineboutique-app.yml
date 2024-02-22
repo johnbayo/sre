@@ -12,8 +12,8 @@ spec:
     helm:
       valueFiles:
         - $values/configs/local/onlineboutique/values.yaml
-    kustomize:
-      path: kustomize-templates/onlineboutique/overlays/
+#    kustomize:
+#      path: kustomize-templates/onlineboutique/overlays/
   - repoURL: git@github.com:johnbayo/sre.git
     path: configs/local/onlineboutique/
     ref: values
@@ -26,17 +26,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
-#---
-#apiVersion: v1
-#kind: Secret
-#metadata:
-#  name: onlineboutique
-#  namespace: onlineboutique
-#  labels:
-#    argocd.argoproj.io/secret-type: repository
-#stringData:
-#  name: onlineboutique
-#  url: oci://us-docker.pkg.dev/online-boutique-ci/charts/onlineboutique
-#  type: helm
   
