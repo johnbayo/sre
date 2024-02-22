@@ -12,11 +12,11 @@ spec:
     helm:
       valueFiles:
         - $values/configs/local/onlineboutique/values.yaml
+    kustomize:
+      path: kustomize-templates/onlineboutique/overlays/
   - repoURL: git@github.com:johnbayo/sre.git
     path: configs/local/onlineboutique/
     ref: values
-  - repoURL: git@github.com:johnbayo/sre.git
-    path: kustomize-templates/onlineboutique/
   destination:
     server: https://kubernetes.default.svc
     namespace: onlineboutique
