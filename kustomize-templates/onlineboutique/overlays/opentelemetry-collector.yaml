@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 
+  namespace: onlineboutique
+spec:
+  template:
+    spec:
+      $patch: delete
+      initContainers:
+        - name: otel-gateway-init

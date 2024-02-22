@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: onlineboutique
+
+helmCharts:
+- name: onlineboutique
+  version: "0.9.0"
+  repo: "https://us-docker.pkg.dev/online-boutique-ci/charts"
+  releaseName: onlineboutique
+  namespace: onlineboutique
+  valuesInline:
+    opentelemetryCollector:
+      create: true 
+
+patchesStrategicMerge:
+  - path: overlays/opentelemetry-collector.yaml

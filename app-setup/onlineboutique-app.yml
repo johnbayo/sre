@@ -15,6 +15,8 @@ spec:
   - repoURL: git@github.com:johnbayo/sre.git
     path: configs/local/onlineboutique/
     ref: values
+  - repoURL: git@github.com:johnbayo/sre.git
+    path: kustomize-templates/onlineboutique/
   destination:
     server: https://kubernetes.default.svc
     namespace: onlineboutique
