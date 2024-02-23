@@ -31,7 +31,7 @@ opentelemetryCollector:
   create: true
   name: opentelemetry-collector
   # Specifies the project id for the otel collector. If set as "PROJECT_ID" (default value), an initContainer will automatically retrieve the project id value from the metadata server.
-  projectId: ""
+  projectId: "demo"
 
 googleCloudOperations:
   profiler: false
