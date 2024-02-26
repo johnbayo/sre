@@ -25,6 +25,9 @@ spec:
         - values.yaml
   - repoURL: git@github.com:johnbayo/sre.git
     targetRevision: HEAD
+    path: configs/crd/
+  - repoURL: git@github.com:johnbayo/sre.git
+    targetRevision: HEAD
     path: configs/local/slo/
   destination:
     server: https://kubernetes.default.svc
