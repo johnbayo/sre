@@ -40,7 +40,7 @@ spec:
 apiVersion: sloth.slok.dev/v1
 kind: PrometheusServiceLevel
 metadata:
-  name: slo-cartservice-availability
+  name: cartservice-availability
   namespace: otel
   labels:
     team: sre
