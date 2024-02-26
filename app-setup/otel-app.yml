@@ -23,9 +23,13 @@ spec:
       releaseName: sloth
       valueFiles: 
         - values.yaml
-  - repoURL: git@github.com:johnbayo/sre.git
-    targetRevision: HEAD
-    path: configs/crd/
+  - repoURL: ://prometheus-community.github.io/helm-charts
+    chart: prometheus-operator-crds
+    targetRevision: 9.0.1
+    helm:
+      releaseName: prometheus-operator-crds
+      valueFiles: 
+        - values.yaml
   - repoURL: git@github.com:johnbayo/sre.git
     targetRevision: HEAD
     path: configs/local/slo/
