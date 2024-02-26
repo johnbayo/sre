@@ -23,6 +23,9 @@ spec:
       releaseName: sloth
       valueFiles: 
         - values.yaml
+  - repoURL: git@github.com:johnbayo/sre.git
+    targetRevision: HEAD
+    path: configs/local/slo/
   destination:
     server: https://kubernetes.default.svc
     namespace: otel

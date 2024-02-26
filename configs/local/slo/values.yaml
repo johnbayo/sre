@@ -1,0 +1,78 @@
+apiVersion: sloth.slok.dev/v1
+kind: PrometheusServiceLevel
+metadata:
+  name: cartservice-latency-10s
+  namespace: otel
+  labels:
+    team: sre
+    app: cartservice
+spec:
+  service: "cartservice"
+  labels:
+    team: sre
+    app: cartservice
+  slos:
+    - name: "latency-10s"
+      objective: 98
+      description: "Common SLO based on latency-10s."
+      sli:
+        raw:
+          errorRatioQuery: |
+            (sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[{{.window}}])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[{{.window}}])))
+            /
+            sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[{{.window}}])) > 0
+            OR on() vector(0)
+      alerting:
+        name: "cartserviceHighLatencyRate"
+        labels:
+          category: "latency-10s"
+        annotations:
+          summary: "latency-10s of cartservice below SLO level"
+          playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure       
+          alert_type: "SLO"
+        page_alert:
+          labels:
+            severity: "P3"
+        ticket_alert:
+          labels:
+        severity: "P1"
+---
+apiVersion: sloth.slok.dev/v1
+kind: PrometheusServiceLevel
+metadata:
+  name: slo-cartservice-availability
+  namespace: otel
+  labels:
+    team: sre
+    app: cartservice
+spec:
+  service: "cartservice"
+  labels:
+    team: sre
+    app: cartservice
+  slos:
+    - name: "availability"
+      objective: 99.95
+      description: "Common SLO based on availability for HTTP request responses."
+      sli:
+        raw:
+          errorRatioQuery: |
+            (
+              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/cartservice", http_response_status_code=~"(5.*|4.*)"}[{{.window}}]))
+              /
+              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/cartservice"}[{{.window}}])) > 0)
+            ) OR on() vector(0)
+      alerting:
+        name: "cartserviceHighErrorRate"
+        labels:
+          category: "availability"
+        annotations:
+          summary: "availability of cartservice below SLO level"
+          playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
+          alert_type: "SLO"
+        page_alert:
+          labels:
+            severity: "P3"
+        ticket_alert:
+          labels:
+            severity: "P1"
