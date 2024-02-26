@@ -16,11 +16,13 @@ spec:
   - repoURL: git@github.com:johnbayo/sre.git
     path: configs/local/otel/
     ref: values
-  #- repoURL: git@github.com:johnbayo/sre.git
-  #  path: helm-charts/log-exporter
-  #  helm:
-  #    valueFiles: 
-  #      - values.yaml
+  - repoURL: https://slok.github.io/sloth
+    chart: sloth
+    targetRevision: 0.7.0
+    helm:
+      releaseName: sloth
+      valueFiles: 
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: otel
