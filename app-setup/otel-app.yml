@@ -37,6 +37,10 @@ spec:
           value: 'false'
         - name: grafana.enabled
           value: 'false'
+        - name: prometheus-windows-exporter.prometheus.monitor.enabled
+          value: 'false'
+        - name: nodeExporter-enabled
+          value: 'false'
   - repoURL: git@github.com:johnbayo/sre.git
     targetRevision: HEAD
     path: configs/local/slo/
