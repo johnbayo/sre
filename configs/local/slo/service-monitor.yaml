@@ -6,7 +6,7 @@ metadata:
 spec:
   endpoints:
     - interval: 60s
-      port: 8080
+      port: tcp-service
   selector:
     matchLabels:
       app.kubernetes.io/component: cartservice
