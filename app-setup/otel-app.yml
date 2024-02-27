@@ -30,6 +30,20 @@ spec:
       releaseName: prometheus-operator-crds
       valueFiles: 
         - values.yaml
+  - repoURL: https://prometheus-community.github.io/helm-charts
+    chart: kube-prometheus-stack
+    targetRevision: 9.0.1
+    helm:
+      releaseName: kube-prometheus-stack
+      valueFiles: 
+        - values.yaml
+      parameters:
+        - name: prometheus.enabled
+          value: 'false'
+        - name: alertmanager.enabled
+          value: 'false'
+        - name: grafana.enabled
+          value: 'false'
   - repoURL: git@github.com:johnbayo/sre.git
     targetRevision: HEAD
     path: configs/local/slo/
