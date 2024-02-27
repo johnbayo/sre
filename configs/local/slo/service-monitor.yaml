@@ -9,4 +9,4 @@ spec:
       port: tcp-service
   selector:
     matchLabels:
-      app.kubernetes.io/component: cartservice
+      opentelemetry.io/name: opentelemetry-demo-cartservice
