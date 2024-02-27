@@ -756,7 +756,7 @@ prometheus:
 #                own_namespace: true
           static_configs:
             - targets:
-                - opentelemetry-collector:9464
+                - opentelemetry-demo-otelcol:9464
           relabel_configs:
             - source_labels: [__meta_kubernetes_pod_annotation_opentelemetry_community_demo]
               action: keep
@@ -768,10 +768,10 @@ prometheus:
           static_configs:
             - targets:
               - localhost:9090
-        - job_name: otelcol
+        - job_name: otelcol-metrics
           static_configs:
             - targets:
-                - opentelemetry-collector:8888
+                - opentelemetry-demo-otelcol:8888
 
 grafana:
   enabled: true
