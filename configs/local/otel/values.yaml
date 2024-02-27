@@ -631,7 +631,7 @@ opentelemetry-collector:
     # The service monitor by default scrapes the metrics port.
     # The metrics port needs to be enabled as well.
     enabled: false
-    
+
   config:
     receivers:
       otlp:
@@ -754,10 +754,10 @@ prometheus:
           static_configs:
             - targets:
                 - opentelemetry-demo-otelcol:9464
-          relabel_configs:
-            - source_labels: [__meta_kubernetes_pod_annotation_opentelemetry_community_demo]
-              action: keep
-              regex: true
+#          relabel_configs:
+#            - source_labels: [__meta_kubernetes_pod_annotation_opentelemetry_community_demo]
+#              action: keep
+#              regex: true
         - job_name: prometheus
           honor_labels: true
           metrics_path: /metrics
