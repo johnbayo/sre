@@ -878,14 +878,14 @@ prometheus:
             - source_labels: [__meta_kubernetes_pod_node_name]
               action: replace
               target_label: node
-          - job_name: 'prometheus-pushgateway'
-            honor_labels: true
-            kubernetes_sd_configs:
-              - role: service
-            relabel_configs:
-              - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_probe]
-                action: keep
-                regex: pushgateway
+        - job_name: 'prometheus-pushgateway'
+          honor_labels: true
+          kubernetes_sd_configs:
+            - role: service
+          relabel_configs:
+            - source_labels: [__meta_kubernetes_service_annotation_prometheus_io_probe]
+              action: keep
+              regex: pushgateway
         - job_name: 'kubernetes-services'
           honor_labels: true
           metrics_path: /probe
@@ -1000,13 +1000,6 @@ prometheus:
             - source_labels: [__meta_kubernetes_pod_node_name]
               action: replace
               target_label: node
-
-
-
-
-
-
-
 
 
 
