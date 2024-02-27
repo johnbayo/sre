@@ -630,11 +630,8 @@ opentelemetry-collector:
   serviceMonitor:
     # The service monitor by default scrapes the metrics port.
     # The metrics port needs to be enabled as well.
-    enabled: true
-    metricsEndpoints:
-      - port: tcp-service
-    extraLabels:
-      app.kubernetes.io/component: cartservice
+    enabled: false
+    
   config:
     receivers:
       otlp:
