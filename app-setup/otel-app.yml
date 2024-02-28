@@ -23,24 +23,6 @@ spec:
       releaseName: sloth
       valueFiles: 
         - values.yaml
-  - repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
-    targetRevision: 56.9.0
-    helm:
-      releaseName: kube-prometheus-stack
-      valueFiles: 
-        - values.yaml
-      parameters:
-        - name: prometheus.enabled
-          value: 'false'
-        - name: alertmanager.enabled
-          value: 'false'
-        - name: grafana.enabled
-          value: 'false'
-        - name: prometheus-windows-exporter.prometheus.monitor.enabled
-          value: 'false'
-        - name: nodeExporter-enabled
-          value: 'false'
   - repoURL: git@github.com:johnbayo/sre.git
     targetRevision: HEAD
     path: configs/local/slo/
