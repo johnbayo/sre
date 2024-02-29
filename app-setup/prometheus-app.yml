@@ -12,7 +12,7 @@ spec:
     helm:
       releaseName: kube-prometheus-stack
       valueFiles: 
-        - values.yaml
+        - $values/configs/local/prometheus/values.yaml
       parameters:
         - name: alertmanager.enabled
           value: 'false'
@@ -25,23 +25,6 @@ spec:
   - repoURL: git@github.com:johnbayo/sre.git
     path: configs/local/prometheus/
     ref: values
-#  - repoURL: https://prometheus-community.github.io/helm-charts
-#    targetRevision: 25.12.0
-#    chart: prometheus
-#    helm:
-#      releaseName: prometheus
-#      valueFiles:
-#        - $values/configs/local/prometheus/values.yaml
-#  - repoURL: git@github.com:johnbayo/sre.git
-#    path: configs/local/prometheus/
-#    ref: values
-#  - repoURL: https://slok.github.io/sloth
-#    chart: sloth
-#    targetRevision: 0.7.0
-#    helm:
-#      releaseName: sloth
-#      valueFiles: 
-#        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
