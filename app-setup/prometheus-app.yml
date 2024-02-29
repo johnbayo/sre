@@ -22,6 +22,9 @@ spec:
           value: 'false'
         - name: nodeExporter-enabled
           value: 'false'
+  - repoURL: git@github.com:johnbayo/sre.git
+    path: configs/local/prometheus/
+    ref: values
 #  - repoURL: https://prometheus-community.github.io/helm-charts
 #    targetRevision: 25.12.0
 #    chart: prometheus
@@ -32,13 +35,13 @@ spec:
 #  - repoURL: git@github.com:johnbayo/sre.git
 #    path: configs/local/prometheus/
 #    ref: values
-  - repoURL: https://slok.github.io/sloth
-    chart: sloth
-    targetRevision: 0.7.0
-    helm:
-      releaseName: sloth
-      valueFiles: 
-        - values.yaml
+#  - repoURL: https://slok.github.io/sloth
+#    chart: sloth
+#    targetRevision: 0.7.0
+#    helm:
+#      releaseName: sloth
+#      valueFiles: 
+#        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
