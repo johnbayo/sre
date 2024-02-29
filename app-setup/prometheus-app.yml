@@ -12,10 +12,12 @@ spec:
     helm:
       releaseName: kube-prometheus-stack
       valueFiles: 
-        - $values/configs/local/prometheus/values.yaml
-  - repoURL: git@github.com:johnbayo/sre.git
-    path: configs/local/prometheus/
-    ref: values
+        - values.yaml
+#      valueFiles: 
+#        - $values/configs/local/prometheus/values.yaml
+#  - repoURL: git@github.com:johnbayo/sre.git
+#    path: configs/local/prometheus/
+#    ref: values
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
