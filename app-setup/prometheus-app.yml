@@ -13,15 +13,6 @@ spec:
       releaseName: kube-prometheus-stack
       valueFiles: 
         - $values/configs/local/prometheus/values.yaml
-      parameters:
-        - name: alertmanager.enabled
-          value: 'false'
-        - name: grafana.enabled
-          value: 'false'
-        - name: prometheus-windows-exporter.prometheus.monitor.enabled
-          value: 'false'
-        - name: nodeExporter-enabled
-          value: 'false'
   - repoURL: git@github.com:johnbayo/sre.git
     path: configs/local/prometheus/
     ref: values
