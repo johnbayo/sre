@@ -242,7 +242,7 @@ prometheus-windows-exporter:
   ##
   prometheus:
     monitor:
-      enabled: false
+      enabled: true
       jobLabel: jobLabel
 
   releaseLabel: true
@@ -3602,22 +3602,22 @@ prometheus:
     ## port to 2379 and allow etcd scraping provided it is running on all Kubernetes master nodes
     ##
     additionalScrapeConfigs:
-      - job_name: prometheus
-        static_configs:
-          - targets:
-              - localhost:9090
-      - job_name: prometheus-kube-state-metrics
-        static_configs:
-          - targets:
-              - prometheus-kube-state-metrics:8080
-      - job_name: prometheus-alertmanager
-        static_configs:
-          - targets:
-              - prometheus-alertmanager:9093
-      - job_name: otelcol-metrics
-        static_configs:
-          - targets:
-              - opentelemetry-demo-otelcol.otel.svc.cluster.local:8888      
+     - job_name: prometheus
+       static_configs:
+         - targets:
+             - localhost:9090
+     - job_name: prometheus-kube-state-metrics
+       static_configs:
+         - targets:
+             - prometheus-kube-state-metrics:8080
+     - job_name: prometheus-alertmanager
+       static_configs:
+         - targets:
+             - prometheus-alertmanager:9093
+     - job_name: otelcol-metrics
+       static_configs:
+         - targets:
+             - opentelemetry-demo-otelcol.otel.svc.cluster.local:8888      
     # - job_name: kube-etcd
     #   kubernetes_sd_configs:
     #     - role: node
