@@ -1,11 +1,13 @@
 # sre
 this repository showcase SLOs and observability implementation
 
-> - [x] NGINX_APP
-> - [x] GOOGLE_DEMO
+> - [x] OPENTELEMETRY
 > - [x] PROMETHEUS
 > - [x] GRAFANA
+> - [x] JAEGER
+> - [x] OPENSEARCH
 > - [x] LOCUST
 
 ## SRE Architecture
-> ![Schema Opentelemetry Architecture](document/)
+> ![Schema Opentelemetry  Applications Architecture](document/opentelemetry-apps.png)
+> ![Schema Opentelemetry  Applications Architecture](document/telemetry.png)
