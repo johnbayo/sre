@@ -8,4 +8,4 @@ this repository showcase SLOs and observability implementation
 > - [x] LOCUST
 
 ## SRE Architecture
-> ![Schema Online Boutique Architecture](document/)
+> ![Schema Opentelemetry Architecture](document/)
