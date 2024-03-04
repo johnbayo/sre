@@ -1671,9 +1671,9 @@ prometheus:
         rules:
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend", http_response_status_code=~"(5.*|4.*)"}[5m]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)"}[5m]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend"}[5m])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend"}[5m])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1686,9 +1686,9 @@ prometheus:
           record: slo:sli_error:ratio_rate5m
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend", http_response_status_code=~"(5.*|4.*)"}[30m]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)"}[30m]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend"}[30m])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend"}[30m])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1701,9 +1701,9 @@ prometheus:
           record: slo:sli_error:ratio_rate30m
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend", http_response_status_code=~"(5.*|4.*)"}[1h]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)"}[1h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend"}[1h])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend"}[1h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1716,9 +1716,9 @@ prometheus:
           record: slo:sli_error:ratio_rate1h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend", http_response_status_code=~"(5.*|4.*)"}[2h]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)"}[2h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend"}[2h])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend"}[2h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1731,9 +1731,9 @@ prometheus:
           record: slo:sli_error:ratio_rate2h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend", http_response_status_code=~"(5.*|4.*)"}[6h]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)"}[6h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend"}[6h])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend"}[6h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1746,9 +1746,9 @@ prometheus:
           record: slo:sli_error:ratio_rate6h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend", http_response_status_code=~"(5.*|4.*)"}[1d]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)"}[1d]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend"}[1d])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend"}[1d])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1761,9 +1761,9 @@ prometheus:
           record: slo:sli_error:ratio_rate1d
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend", http_response_status_code=~"(5.*|4.*)"}[3d]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)"}[3d]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/frontend"}[3d])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend"}[3d])) > 0)
             ) OR on() vector(0)
             )
           labels:
