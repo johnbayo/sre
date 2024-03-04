@@ -979,232 +979,232 @@ prometheus:
           labels:
             category: availability
             sloth_severity: ticket
-      - name: sloth-slo-sli-recordings-cartservice-latency-10s
+      - name: sloth-slo-sli-recordings-cartservice-latency-1s
         rules:
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[5m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="1000"}[5m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[5m])) > 0
             OR on() vector(0)
             )
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 5m
             team: sre
           record: slo:sli_error:ratio_rate5m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[30m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="1000"}[30m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[30m])) > 0
             OR on() vector(0)
             )
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30m
             team: sre
           record: slo:sli_error:ratio_rate30m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[1h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="1000"}[1h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[1h])) > 0
             OR on() vector(0)
             )
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1h
             team: sre
           record: slo:sli_error:ratio_rate1h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[2h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="1000"}[2h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[2h])) > 0
             OR on() vector(0)
             )
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 2h
             team: sre
           record: slo:sli_error:ratio_rate2h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[6h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="1000"}[6h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[6h])) > 0
             OR on() vector(0)
             )
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 6h
             team: sre
           record: slo:sli_error:ratio_rate6h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[1d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="1000"}[1d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[1d])) > 0
             OR on() vector(0)
             )
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1d
             team: sre
           record: slo:sli_error:ratio_rate1d
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="10"}[3d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="1000"}[3d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="cartservice",  le="+Inf"}[3d])) > 0
             OR on() vector(0)
             )
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 3d
             team: sre
           record: slo:sli_error:ratio_rate3d
         - expr: |
-            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"}[30d])
+            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"}[30d])
             / ignoring (sloth_window)
-            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"}[30d])
+            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"}[30d])
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30d
             team: sre
           record: slo:sli_error:ratio_rate30d
-      - name: sloth-slo-meta-recordings-cartservice-latency-10s
+      - name: sloth-slo-meta-recordings-cartservice-latency-1s
         rules:
         - expr: vector(0.98)
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:objective:ratio
         - expr: vector(1-0.98)
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:error_budget:ratio
         - expr: vector(30)
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:time_period:days
         - expr: |
-            slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"}
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:current_burn_rate:ratio
         - expr: |
-            slo:sli_error:ratio_rate30d{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate30d{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"}
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_burn_rate:ratio
-        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="cartservice-latency-10s", sloth_service="cartservice",
-            sloth_slo="latency-10s"}
+        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="cartservice-latency-1s", sloth_service="cartservice",
+            sloth_slo="latency-1s"}
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_error_budget_remaining:ratio
         - expr: vector(1)
           labels:
             app: cartservice
-            sloth_id: cartservice-latency-10s
+            sloth_id: cartservice-latency-1s
             sloth_mode: ctrl-gen-k8s
             sloth_objective: "98"
             sloth_service: cartservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_spec: sloth.slok.dev/v1
             sloth_version: v0.11.0
             team: sre
           record: sloth_slo_info
-      - name: sloth-slo-alerts-cartservice-latency-10s
+      - name: sloth-slo-alerts-cartservice-latency-1s
         rules:
         - alert: cartserviceHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of cartservice below SLO level
+            summary: latency-1s of cartservice below SLO level
             title: (page) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate5m{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1h{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1h{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate30m{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate30m{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate6h{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: page
         - alert: cartserviceHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of cartservice below SLO level
+            summary: latency-1s of cartservice below SLO level
             title: (ticket) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate2h{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate2h{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1d{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1d{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate6h{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate3d{sloth_id="cartservice-latency-10s", sloth_service="cartservice", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate3d{sloth_id="cartservice-latency-1s", sloth_service="cartservice", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: ticket
       - name: sloth-slo-sli-recordings-productcatalogservice-availability
         rules:
@@ -1440,232 +1440,232 @@ prometheus:
           labels:
             category: availability
             sloth_severity: ticket
-      - name: sloth-slo-sli-recordings-productcatalogservice-latency-10s
+      - name: sloth-slo-sli-recordings-productcatalogservice-latency-1s
         rules:
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="10"}[5m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="1000"}[5m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[5m])) > 0
             OR on() vector(0)
             )
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 5m
             team: sre
           record: slo:sli_error:ratio_rate5m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="10"}[30m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="1000"}[30m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[30m])) > 0
             OR on() vector(0)
             )
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30m
             team: sre
           record: slo:sli_error:ratio_rate30m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="10"}[1h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="1000"}[1h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[1h])) > 0
             OR on() vector(0)
             )
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1h
             team: sre
           record: slo:sli_error:ratio_rate1h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="10"}[2h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="1000"}[2h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[2h])) > 0
             OR on() vector(0)
             )
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 2h
             team: sre
           record: slo:sli_error:ratio_rate2h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="10"}[6h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="1000"}[6h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[6h])) > 0
             OR on() vector(0)
             )
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 6h
             team: sre
           record: slo:sli_error:ratio_rate6h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="10"}[1d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="1000"}[1d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[1d])) > 0
             OR on() vector(0)
             )
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1d
             team: sre
           record: slo:sli_error:ratio_rate1d
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="10"}[3d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="1000"}[3d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="productcatalogservice",  le="+Inf"}[3d])) > 0
             OR on() vector(0)
             )
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 3d
             team: sre
           record: slo:sli_error:ratio_rate3d
         - expr: |
-            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"}[30d])
+            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"}[30d])
             / ignoring (sloth_window)
-            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"}[30d])
+            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"}[30d])
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30d
             team: sre
           record: slo:sli_error:ratio_rate30d
-      - name: sloth-slo-meta-recordings-productcatalogservice-latency-10s
+      - name: sloth-slo-meta-recordings-productcatalogservice-latency-1s
         rules:
         - expr: vector(0.98)
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:objective:ratio
         - expr: vector(1-0.98)
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:error_budget:ratio
         - expr: vector(30)
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:time_period:days
         - expr: |
-            slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"}
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:current_burn_rate:ratio
         - expr: |
-            slo:sli_error:ratio_rate30d{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate30d{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"}
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_burn_rate:ratio
-        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice",
-            sloth_slo="latency-10s"}
+        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice",
+            sloth_slo="latency-1s"}
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_error_budget_remaining:ratio
         - expr: vector(1)
           labels:
             app: productcatalogservice
-            sloth_id: productcatalogservice-latency-10s
+            sloth_id: productcatalogservice-latency-1s
             sloth_mode: ctrl-gen-k8s
             sloth_objective: "98"
             sloth_service: productcatalogservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_spec: sloth.slok.dev/v1
             sloth_version: v0.11.0
             team: sre
           record: sloth_slo_info
-      - name: sloth-slo-alerts-productcatalogservice-latency-10s
+      - name: sloth-slo-alerts-productcatalogservice-latency-1s
         rules:
         - alert: productcatalogserviceHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of productcatalogservice below SLO level
+            summary: latency-1s of productcatalogservice below SLO level
             title: (page) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate5m{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1h{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1h{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate30m{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate30m{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate6h{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: page
         - alert: productcatalogserviceHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of productcatalogservice below SLO level
+            summary: latency-1s of productcatalogservice below SLO level
             title: (ticket) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate2h{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate2h{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1d{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1d{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate6h{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate3d{sloth_id="productcatalogservice-latency-10s", sloth_service="productcatalogservice", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate3d{sloth_id="productcatalogservice-latency-1s", sloth_service="productcatalogservice", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: ticket
       - name: sloth-slo-sli-recordings-frontend-availability
         rules:
@@ -1901,232 +1901,232 @@ prometheus:
           labels:
             category: availability
             sloth_severity: ticket
-      - name: sloth-slo-sli-recordings-frontend-latency-10s
+      - name: sloth-slo-sli-recordings-frontend-latency-1s
         rules:
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="10"}[5m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="1000"}[5m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[5m])) > 0
             OR on() vector(0)
             )
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 5m
             team: sre
           record: slo:sli_error:ratio_rate5m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="10"}[30m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="1000"}[30m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[30m])) > 0
             OR on() vector(0)
             )
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30m
             team: sre
           record: slo:sli_error:ratio_rate30m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="10"}[1h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="1000"}[1h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[1h])) > 0
             OR on() vector(0)
             )
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1h
             team: sre
           record: slo:sli_error:ratio_rate1h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="10"}[2h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="1000"}[2h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[2h])) > 0
             OR on() vector(0)
             )
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 2h
             team: sre
           record: slo:sli_error:ratio_rate2h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="10"}[6h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="1000"}[6h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[6h])) > 0
             OR on() vector(0)
             )
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 6h
             team: sre
           record: slo:sli_error:ratio_rate6h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="10"}[1d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="1000"}[1d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[1d])) > 0
             OR on() vector(0)
             )
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1d
             team: sre
           record: slo:sli_error:ratio_rate1d
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="10"}[3d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="1000"}[3d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="frontend",  le="+Inf"}[3d])) > 0
             OR on() vector(0)
             )
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 3d
             team: sre
           record: slo:sli_error:ratio_rate3d
         - expr: |
-            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"}[30d])
+            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"}[30d])
             / ignoring (sloth_window)
-            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"}[30d])
+            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"}[30d])
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30d
             team: sre
           record: slo:sli_error:ratio_rate30d
-      - name: sloth-slo-meta-recordings-frontend-latency-10s
+      - name: sloth-slo-meta-recordings-frontend-latency-1s
         rules:
         - expr: vector(0.98)
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:objective:ratio
         - expr: vector(1-0.98)
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:error_budget:ratio
         - expr: vector(30)
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:time_period:days
         - expr: |
-            slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"}
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:current_burn_rate:ratio
         - expr: |
-            slo:sli_error:ratio_rate30d{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate30d{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"}
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_burn_rate:ratio
-        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="frontend-latency-10s", sloth_service="frontend",
-            sloth_slo="latency-10s"}
+        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="frontend-latency-1s", sloth_service="frontend",
+            sloth_slo="latency-1s"}
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_error_budget_remaining:ratio
         - expr: vector(1)
           labels:
             app: frontend
-            sloth_id: frontend-latency-10s
+            sloth_id: frontend-latency-1s
             sloth_mode: ctrl-gen-k8s
             sloth_objective: "98"
             sloth_service: frontend
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_spec: sloth.slok.dev/v1
             sloth_version: v0.11.0
             team: sre
           record: sloth_slo_info
-      - name: sloth-slo-alerts-frontend-latency-10s
+      - name: sloth-slo-alerts-frontend-latency-1s
         rules:
         - alert: frontendHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of frontend below SLO level
+            summary: latency-1s of frontend below SLO level
             title: (page) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate5m{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1h{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1h{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate30m{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate30m{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate6h{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: page
         - alert: frontendHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of frontend below SLO level
+            summary: latency-1s of frontend below SLO level
             title: (ticket) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate2h{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate2h{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1d{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1d{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate6h{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate3d{sloth_id="frontend-latency-10s", sloth_service="frontend", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate3d{sloth_id="frontend-latency-1s", sloth_service="frontend", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: ticket
       - name: sloth-slo-sli-recordings-checkoutservice-availability
         rules:
@@ -2362,232 +2362,232 @@ prometheus:
           labels:
             category: availability
             sloth_severity: ticket
-      - name: sloth-slo-sli-recordings-checkoutservice-latency-10s
+      - name: sloth-slo-sli-recordings-checkoutservice-latency-1s
         rules:
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="10"}[5m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[5m])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="1000"}[5m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[5m])) > 0
             OR on() vector(0)
             )
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 5m
             team: sre
           record: slo:sli_error:ratio_rate5m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="10"}[30m])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[30m])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="1000"}[30m])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[30m])) > 0
             OR on() vector(0)
             )
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30m
             team: sre
           record: slo:sli_error:ratio_rate30m
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="10"}[1h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[1h])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="1000"}[1h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[1h])) > 0
             OR on() vector(0)
             )
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1h
             team: sre
           record: slo:sli_error:ratio_rate1h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="10"}[2h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[2h])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="1000"}[2h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[2h])) > 0
             OR on() vector(0)
             )
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 2h
             team: sre
           record: slo:sli_error:ratio_rate2h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="10"}[6h])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[6h])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="1000"}[6h])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[6h])) > 0
             OR on() vector(0)
             )
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 6h
             team: sre
           record: slo:sli_error:ratio_rate6h
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="10"}[1d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[1d])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="1000"}[1d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[1d])) > 0
             OR on() vector(0)
             )
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 1d
             team: sre
           record: slo:sli_error:ratio_rate1d
         - expr: |-
-            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="10"}[3d])))
+            ((sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[3d])) - sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="1000"}[3d])))
             /
             sum(increase(duration_milliseconds_bucket{service_name="checkoutservice",  le="+Inf"}[3d])) > 0
             OR on() vector(0)
             )
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 3d
             team: sre
           record: slo:sli_error:ratio_rate3d
         - expr: |
-            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"}[30d])
+            sum_over_time(slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"}[30d])
             / ignoring (sloth_window)
-            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"}[30d])
+            count_over_time(slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"}[30d])
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_window: 30d
             team: sre
           record: slo:sli_error:ratio_rate30d
-      - name: sloth-slo-meta-recordings-checkoutservice-latency-10s
+      - name: sloth-slo-meta-recordings-checkoutservice-latency-1s
         rules:
         - expr: vector(0.98)
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:objective:ratio
         - expr: vector(1-0.98)
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:error_budget:ratio
         - expr: vector(30)
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:time_period:days
         - expr: |
-            slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"}
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:current_burn_rate:ratio
         - expr: |
-            slo:sli_error:ratio_rate30d{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"}
+            slo:sli_error:ratio_rate30d{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"}
             / on(sloth_id, sloth_slo, sloth_service) group_left
-            slo:error_budget:ratio{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"}
+            slo:error_budget:ratio{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"}
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_burn_rate:ratio
-        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice",
-            sloth_slo="latency-10s"}
+        - expr: 1 - slo:period_burn_rate:ratio{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice",
+            sloth_slo="latency-1s"}
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             team: sre
           record: slo:period_error_budget_remaining:ratio
         - expr: vector(1)
           labels:
             app: checkoutservice
-            sloth_id: checkoutservice-latency-10s
+            sloth_id: checkoutservice-latency-1s
             sloth_mode: ctrl-gen-k8s
             sloth_objective: "98"
             sloth_service: checkoutservice
-            sloth_slo: latency-10s
+            sloth_slo: latency-1s
             sloth_spec: sloth.slok.dev/v1
             sloth_version: v0.11.0
             team: sre
           record: sloth_slo_info
-      - name: sloth-slo-alerts-checkoutservice-latency-10s
+      - name: sloth-slo-alerts-checkoutservice-latency-1s
         rules:
         - alert: checkoutserviceHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of checkoutservice below SLO level
+            summary: latency-1s of checkoutservice below SLO level
             title: (page) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate5m{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1h{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (14.4 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1h{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (14.4 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate30m{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate30m{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate6h{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (6 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (6 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: page
         - alert: checkoutserviceHighLatencyRate
           annotations:
             alert_type: SLO
             playbook: https://runbooks.prometheus-operator.dev/runbooks/prometheus/prometheussdrefreshfailure
-            summary: latency-10s of checkoutservice below SLO level
+            summary: latency-1s of checkoutservice below SLO level
             title: (ticket) {{$labels.sloth_service}} {{$labels.sloth_slo}} SLO error
               budget burn rate is too fast.
           expr: |
             (
-                max(slo:sli_error:ratio_rate2h{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate2h{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate1d{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (3 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate1d{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (3 * 0.02)) without (sloth_window)
             )
             or
             (
-                max(slo:sli_error:ratio_rate6h{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate6h{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
                 and
-                max(slo:sli_error:ratio_rate3d{sloth_id="checkoutservice-latency-10s", sloth_service="checkoutservice", sloth_slo="latency-10s"} > (1 * 0.02)) without (sloth_window)
+                max(slo:sli_error:ratio_rate3d{sloth_id="checkoutservice-latency-1s", sloth_service="checkoutservice", sloth_slo="latency-1s"} > (1 * 0.02)) without (sloth_window)
             )
           labels:
-            category: latency-10s
+            category: latency-1s
             sloth_severity: ticket
 
 
