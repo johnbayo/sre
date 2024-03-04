@@ -9,5 +9,5 @@ this repository showcase SLOs and observability implementation
 > - [x] LOCUST
 
 ## SRE Architecture
-> ![Schema Opentelemetry  Applications Architecture](document/opentelemetry-apps.png)
-> ![Schema Opentelemetry  Applications Architecture](document/telemetry.png)
+> ![Schema Opentelemetry Applications Architecture](document/opentelemetry-apps.png)
+> ![Schema Opentelemetry Monitoring Workflow](document/telemetry.png)
