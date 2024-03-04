@@ -1210,9 +1210,9 @@ prometheus:
         rules:
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice", http_response_status_code=~"(5.*|4.*)"}[5m]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)", target=~"/api/product.*"}[5m]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice"}[5m])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}[5m])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1225,9 +1225,9 @@ prometheus:
           record: slo:sli_error:ratio_rate5m
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice", http_response_status_code=~"(5.*|4.*)"}[30m]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)", target=~"/api/product.*"}[30m]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice"}[30m])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}[30m])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1240,9 +1240,9 @@ prometheus:
           record: slo:sli_error:ratio_rate30m
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice", http_response_status_code=~"(5.*|4.*)"}[1h]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)", target=~"/api/product.*"}[1h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice"}[1h])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}[1h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1255,9 +1255,9 @@ prometheus:
           record: slo:sli_error:ratio_rate1h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice", http_response_status_code=~"(5.*|4.*)"}[2h]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)", target=~"/api/product.*"}[2h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice"}[2h])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}[2h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1270,9 +1270,9 @@ prometheus:
           record: slo:sli_error:ratio_rate2h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice", http_response_status_code=~"(5.*|4.*)"}[6h]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)", target=~"/api/product.*"}[6h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice"}[6h])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}[6h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1285,9 +1285,9 @@ prometheus:
           record: slo:sli_error:ratio_rate6h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice", http_response_status_code=~"(5.*|4.*)"}[1d]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)", target=~"/api/product.*"}[1d]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice"}[1d])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}[1d])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -1300,9 +1300,9 @@ prometheus:
           record: slo:sli_error:ratio_rate1d
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice", http_response_status_code=~"(5.*|4.*)"}[3d]))
+              sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", status=~"(5.*|4.*)", target=~"/api/product.*"}[3d]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/productcatalogservice"}[3d])) > 0)
+              (sum(rate(app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}[3d])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -2128,13 +2128,13 @@ prometheus:
           labels:
             category: latency-1s
             sloth_severity: ticket
-      - name: sloth-slo-sli-recordings-checkoutservice-availability
+      - name: sloth-slo-sli-recordings-app_frontend_requests_total{job="opentelemetry-demo/frontend", target=~"/api/product.*"}-availability
         rules:
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice", http_response_status_code=~"(5.*|4.*)"}[5m]))
+              sum(rate(app_frontend_requests_total{status=~"(5.*|4.*), target="/api/checkout"}[5m]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice"}[5m])) > 0)
+              (sum(rate(app_frontend_requests_total{target="/api/checkout"}[5m])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -2147,9 +2147,9 @@ prometheus:
           record: slo:sli_error:ratio_rate5m
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice", http_response_status_code=~"(5.*|4.*)"}[30m]))
+              sum(rate(app_frontend_requests_total{status=~"(5.*|4.*), target="/api/checkout"}[30m]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice"}[30m])) > 0)
+              (sum(rate(app_frontend_requests_total{target="/api/checkout"}[30m])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -2162,9 +2162,9 @@ prometheus:
           record: slo:sli_error:ratio_rate30m
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice", http_response_status_code=~"(5.*|4.*)"}[1h]))
+              sum(rate(app_frontend_requests_total{status=~"(5.*|4.*), target="/api/checkout"}[1h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice"}[1h])) > 0)
+              (sum(rate(app_frontend_requests_total{target="/api/checkout"}[1h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -2177,9 +2177,9 @@ prometheus:
           record: slo:sli_error:ratio_rate1h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice", http_response_status_code=~"(5.*|4.*)"}[2h]))
+              sum(rate(app_frontend_requests_total{status=~"(5.*|4.*), target="/api/checkout"}[2h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice"}[2h])) > 0)
+              (sum(rate(app_frontend_requests_total{target="/api/checkout"}[2h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -2192,9 +2192,9 @@ prometheus:
           record: slo:sli_error:ratio_rate2h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice", http_response_status_code=~"(5.*|4.*)"}[6h]))
+              sum(rate(app_frontend_requests_total{status=~"(5.*|4.*), target="/api/checkout"}[6h]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice"}[6h])) > 0)
+              (sum(rate(app_frontend_requests_total{target="/api/checkout"}[6h])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -2207,9 +2207,9 @@ prometheus:
           record: slo:sli_error:ratio_rate6h
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice", http_response_status_code=~"(5.*|4.*)"}[1d]))
+              sum(rate(app_frontend_requests_total{status=~"(5.*|4.*), target="/api/checkout"}[1d]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice"}[1d])) > 0)
+              (sum(rate(app_frontend_requests_total{target="/api/checkout"}[1d])) > 0)
             ) OR on() vector(0)
             )
           labels:
@@ -2222,9 +2222,9 @@ prometheus:
           record: slo:sli_error:ratio_rate1d
         - expr: |-
             ((
-              sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice", http_response_status_code=~"(5.*|4.*)"}[3d]))
+              sum(rate(app_frontend_requests_total{status=~"(5.*|4.*), target="/api/checkout"}[3d]))
               /
-              (sum(rate(http_server_request_duration_seconds_count{job="opentelemetry-demo/checkoutservice"}[3d])) > 0)
+              (sum(rate(app_frontend_requests_total{target="/api/checkout"}[3d])) > 0)
             ) OR on() vector(0)
             )
           labels:
