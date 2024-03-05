@@ -280,7 +280,7 @@ components:
         memory: 100Mi
 
   featureflagService:
-    enabled: true
+    enabled: false
     useDefault:
       env: true
     ports:
@@ -415,7 +415,7 @@ components:
       runAsNonRoot: true
 
   loadgenerator:
-    enabled: true
+    enabled: false
     useDefault:
       env: true
     service:
