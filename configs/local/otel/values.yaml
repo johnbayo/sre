@@ -415,7 +415,7 @@ components:
       runAsNonRoot: true
 
   loadgenerator:
-    enabled: false
+    enabled: true
     useDefault:
       env: true
     service:
